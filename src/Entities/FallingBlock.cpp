@@ -113,7 +113,7 @@ void cFallingBlock::Tick(std::chrono::milliseconds a_Dt, cChunk & a_Chunk)
 
 		if (BlockY < cChunkDef::Height - 1)
 		{
-			int damage = 2 * (m_HighestPoint - BlockY) - 4; // Damage data from minecraftwiki
+			int damage = 2 * (m_HighestPoint - BlockY) - 4;  // Damage data from minecraftwiki
 			if (m_HurtEntities && damage > 0)
 			{
 				cFallingBlockCallback callback(this, (damage > m_FallHurtMax ? m_FallHurtMax : damage));
@@ -121,7 +121,7 @@ void cFallingBlock::Tick(std::chrono::milliseconds a_Dt, cChunk & a_Chunk)
 				m_World->ForEachEntityInBox(box, callback);
 				
 				cFastRandom Random;
-				if ((m_BlockType == E_BLOCK_ANVIL) && ((double)Random.NextFloat() < 0.05000000074505806 + (double)damage * 0.05)) // Randomization data taken from Forge
+				if ((m_BlockType == E_BLOCK_ANVIL) && ((double)Random.NextFloat() < 0.05000000074505806 + (double)damage * 0.05))  // Randomization data taken from Forge
 				{
 					if (m_BlockMeta < E_BLOCK_ANVIL_HIGH_DAMAGE)
 					{
